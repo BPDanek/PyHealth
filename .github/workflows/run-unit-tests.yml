@@ -23,11 +23,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-      - name: Make artifact path
-        run: | 
-          mkdir /home/runner/.cache/ && mkdir /home/runner/.cache/pyhealth/ && /home/runner/.cache/pyhealth/datasets/
-
       - name: Download artifact
         id: download-artifact
         uses: dawidd6/action-download-artifact@v2
@@ -61,6 +56,7 @@ jobs:
           ls -al /home/runner/.cache/pyhealth/datasets/
 
       - name: Test with pytest
+        if: success() || failure()
         run: |
           cd pyhealth/unittests
           pytest -rP
