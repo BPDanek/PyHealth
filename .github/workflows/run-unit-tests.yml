@@ -51,7 +51,7 @@ jobs:
           # default fail
           if_no_artifact_found: warn
        
-      - name: validate cached data is correctly placed
+      - name: Validate cached data is correctly placed # no output when artifacts not found
         run: | 
           if test -d /home/runner/.cache/pyhealth/datasets/; then ls -al /home/runner/.cache/pyhealth/datasets/; fi 
 
