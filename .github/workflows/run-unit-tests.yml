@@ -53,10 +53,9 @@ jobs:
        
       - name: validate cached data is correctly placed
         run: | 
-          ls -al /home/runner/.cache/pyhealth/datasets/
+          if test -d /home/runner/.cache/pyhealth/datasets/; then ls -al /home/runner/.cache/pyhealth/datasets/; fi 
 
       - name: Test with pytest
-        if: success() || failure()
         run: |
           cd pyhealth/unittests
           pytest -rP
