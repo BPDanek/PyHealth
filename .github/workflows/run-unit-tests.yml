@@ -23,7 +23,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      
+
+      - name: Make artifact path
+        run: | 
+          mkdir /home/runner/.cache/ && mkdir /home/runner/.cache/pyhealth/ && /home/runner/.cache/pyhealth/datasets/
+
       - name: Download artifact
         id: download-artifact
         uses: dawidd6/action-download-artifact@v2
@@ -40,7 +44,7 @@ jobs:
           # will download all artifacts if not specified
           # and extract them into respective subdirectories
           # https://github.com/actions/download-artifact#download-all-artifacts
-          name: datasets
+          name: datasets  
           # Optional, a directory where to extract artifact(s), defaults to the current directory
           path: /home/runner/.cache/pyhealth/datasets/
           # Optional, search for the last workflow run whose stored an artifact named as in `name` input
