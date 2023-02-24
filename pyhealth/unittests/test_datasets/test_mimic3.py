@@ -12,7 +12,7 @@ from pyhealth.datasets import MIMIC3Dataset
 # a dataset is qualified if it produces the correct statistics, and if a sample from the dataset
 # matches the expected data.
 # Synthetic_MIMIC-III dataset provided in the root is a dependancy to the expected values
-# used for testing correctness
+# used for testing correctness.
 # like the MIMIC4 dataset, if this test suite fails, it may be due to a regression in the
 # code, or due to the dataset at the root chaning.
 class TestsMimic3(unittest.TestCase):
