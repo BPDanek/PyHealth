@@ -1,4 +1,4 @@
-name: pytest unittest action scriptg
+name: pytest unittest action script
 
 on: workflow_dispatch
   
